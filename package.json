@@ -1,0 +1,27 @@
+{
+  "name": "browser-cache-sw",
+  "version": "1.0.0",
+  "description": "App demonstrating browser cache and service worker lifecycle",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/domfarolino/browser-cache-sw.git"
+  },
+  "keywords": [
+    "service",
+    "worker",
+    "cache",
+    "browser",
+    "cache"
+  ],
+  "author": "Dom Farolino <domfarolino@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domfarolino/browser-cache-sw/issues"
+  },
+  "homepage": "https://github.com/domfarolino/browser-cache-sw#readme"
+}
