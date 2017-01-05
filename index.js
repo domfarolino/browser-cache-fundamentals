@@ -7,18 +7,28 @@ const logger = require('morgan');
 
 app.use(logger('dev'));
 
-// app.set('etag', 'strong');
+app.set('etag', 'strong');
 
+// No caching for user requested views/routes
 app.get('*', (request, response, next) => {
   response.set({
-    'Cache-Control': 'max-age=10, must-revalidate',
-    'ETag': 'v1',
+    'Cache-Control': 'no-cache',
+    // 'ETag': 'v2',
     // 'Expires': 'Tue, 27 Dec 2016 20:49:49 GMT',
     // 'Last-Modified': 'Tue, 27 Dec 2016 20:49:59 GMT',
   });
 
   // Remove bs headers
   response.removeHeader('X-Powered-By');
+
+  next();
+});
+
+// Long-term caching for static assets
+app.get(/(.css)|(.svg)$/, (request, response, next) => {
+  response.set({
+    'Cache-Control': 'max-age=600',
+  });
 
   next();
 });
